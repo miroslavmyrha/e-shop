@@ -16,4 +16,4 @@ jobs:
         with: 
           browser: chrome
           start: npm run dev
-          wait-on: http://127.0.0.1:3000
+          wait-on: http://127.0.0.1:8080
