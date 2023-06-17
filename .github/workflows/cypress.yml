@@ -4,23 +4,17 @@
 name: Cypress component tests
 on: [push]
 jobs:
-  cypress-run:
+  install:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps: 
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run dev --if-present
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cypress run
+      - name: Install modules
+        run: npm ci
+      - name: Cypress
         uses: cypress-io/github-action@v5
+        with: 
+          browser: chrome
+          headless: true
+          start: npm run dev
+          wait-on: http://localhost:3000
