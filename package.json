@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "host": "vite --host"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
