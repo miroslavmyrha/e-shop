@@ -8,6 +8,10 @@ describe('template spec', () => {
   })
 
   it('hamburger test', () => {
-    cy.get('[data-test="hamburger-menu"]').should('exist').and('be.visible')
+    cy.get('button[data-test="hamburger-menu"]').should('exist').and('be.visible')
+  })
+
+  it('header test', () => {
+    cy.get('header[data-test="toolbar"]').should('exist').and('be.visible')
   })
 })
