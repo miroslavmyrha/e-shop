@@ -17,3 +17,9 @@ jobs:
           browser: chrome
           start: npm run dev -- --host
           wait-on: http://127.0.0.1:8080
+      - name: Upload screenshots
+        uses: actions/upload-artifact@latest
+        if: failure()
+        with:
+            name: cypress-snapshots
+            path: cypress/snapshots
