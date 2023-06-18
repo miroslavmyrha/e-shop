@@ -1,21 +1,20 @@
 describe('template spec', {  defaultCommandTimeout: 10000 }, () => {
-  beforeEach(() => {
-    cy.visit('/')
-  }) 
-
-  it.skip('passes', () => {
+  it('visit', () => {
     cy.visit('/')
   })
 
-  it('hamburger test', () => {
-    cy.visit('/')
-    cy.visit('/')
-    cy.get('button[data-test="hamburger-menu"]').as('hamburgerMenu')
-    cy.wait('@hamburgerMenu').should('exist').and('be.visible')
-  })
+  context('beforeEach visit "/", setting up viewport to fullHD', () => {
+    beforeEach(() => {
+      cy.visit('/')
+      cy.viewport(1920, 1080)
+    }) 
 
-  it('header test', () => {
-    cy.visit('/')
-    cy.get('header').should('exist').and('be.visible')
+    it('hamburger test', () => {
+      cy.get('button[data-test="hamburger-menu"]').should('exist').and('be.visible')
+    })
+  
+    it('header test', () => {
+      cy.get('header').should('exist').and('be.visible')
+    })
   })
 })
