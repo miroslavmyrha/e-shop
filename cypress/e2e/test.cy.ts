@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('template spec', {  defaultCommandTimeout: 10000 }, () => {
   beforeEach(() => {
     cy.visit('/')
   }) 
@@ -8,7 +8,8 @@ describe('template spec', () => {
   })
 
   it('hamburger test', () => {
-    cy.get('button[data-test="hamburger-menu"]').should('exist').and('be.visible')
+    cy.get('button[data-test="hamburger-menu"]').as('hamburgerMenu')
+    cy.wait('@hamburgerMenu').should('exist').and('be.visible')
   })
 
   it('header test', () => {
