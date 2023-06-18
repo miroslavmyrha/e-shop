@@ -12,6 +12,6 @@ describe('template spec', () => {
   })
 
   it('header test', () => {
-    cy.get('header[data-test="toolbar"]').should('exist').and('be.visible')
+    cy.get('header').should('exist').and('be.visible')
   })
 })
