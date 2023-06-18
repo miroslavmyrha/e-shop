@@ -13,16 +13,16 @@ jobs:
       - name: Install modules
         run: npm ci
 
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v3.1.2
-        if: failure()
-        with:
-            name: cypress-snapshots
-            path: cypress/snapshots
-            
       - name: Cypress
         uses: cypress-io/github-action@v5
         with: 
           browser: chrome
           start: npm run dev -- --host
           wait-on: http://127.0.0.1:8080
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v3.1.2
+        if: failure()
+        with:
+            name: cypress-snapshots
+            path: cypress/snapshots
