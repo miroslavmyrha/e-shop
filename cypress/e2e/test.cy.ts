@@ -1,6 +1,7 @@
 describe('template spec', {  defaultCommandTimeout: 10000 }, () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.wait(100000)
   }) 
 
   it('passes', () => {
